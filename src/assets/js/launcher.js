@@ -105,7 +105,7 @@ class Launcher {
                     }
                 },
                 launcher_config: {
-                    download_multi: 5,
+                    download_multi: 50,
                     theme: 'auto',
                     closeLauncher: 'close-launcher',
                     intelEnabledMac: true
