@@ -66,9 +66,10 @@ jobs:
 
       - name: Generate key and certificate (for demonstration purposes; use a real key in production)
         run: |
-          openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=yourdomain.com"
+          openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "//CN=yourdomain.com"
           openssl x509 -in cert.pem -pubkey -noout -out pubkey.pem
         shell: bash
+
 
       - name: Sign the build (Ubuntu and macOS)
         if: matrix.os != 'windows-latest'
