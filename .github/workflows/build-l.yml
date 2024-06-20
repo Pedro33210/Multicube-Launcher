@@ -44,12 +44,12 @@ jobs:
 
       - name: Sign JavaScript file
         run: |
-          openssl dgst -sha256 -sign key.pem -out signature.bin your-editor-file.js
+          openssl dgst -sha256 -sign key.pem -out signature.bin build.js
         shell: bash
 
       - name: Verify signature
         run: |
-          openssl dgst -sha256 -verify pubkey.pem -signature signature.bin your-editor-file.js
+          openssl dgst -sha256 -verify pubkey.pem -signature signature.bin build.js
         shell: bash
 
       - name: Upload signed file and signature
@@ -57,7 +57,7 @@ jobs:
         with:
           name: signed-editor
           path: |
-            your-editor-file.js
+            build.js
             signature.bin
 
   create-release:

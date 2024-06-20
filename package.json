@@ -1,7 +1,7 @@
 {
     "name": "Multicube-Launcher",
     "preductname": "Multicube Launcher",
-    "version": "2.0.1bb1",
+    "version": "2.0.1bbb1",
     "description": "Launcher Mincraft pour le serveur Multicube",
     "main": "src/app.js",
     "author": {
