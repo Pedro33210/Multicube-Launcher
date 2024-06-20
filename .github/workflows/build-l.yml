@@ -56,24 +56,28 @@ jobs:
         run: npm run build
         shell: bash
 
-      # Ajout des étapes de signature et de vérification ici
-      - name: Set up OpenSSL
+      # Conditions pour les étapes spécifiques à l'OS
+      - name: Set up OpenSSL (Ubuntu and macOS)
+        if: matrix.os != 'windows-latest'
         run: |
           sudo apt-get update
           sudo apt-get install -y openssl
+        shell: bash
 
       - name: Generate key and certificate (for demonstration purposes; use a real key in production)
         run: |
-          openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=yourdomain.com"
+          openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=multicube.fr"
           openssl x509 -in cert.pem -pubkey -noout -out pubkey.pem
         shell: bash
 
-      - name: Sign the build
+      - name: Sign the build (Ubuntu and macOS)
+        if: matrix.os != 'windows-latest'
         run: |
           openssl dgst -sha256 -sign key.pem -out signature.bin build.js
         shell: bash
 
-      - name: Verify the signature
+      - name: Verify the signature (Ubuntu and macOS)
+        if: matrix.os != 'windows-latest'
         run: |
           openssl dgst -sha256 -verify pubkey.pem -signature signature.bin build.js
         shell: bash
