@@ -33,16 +33,16 @@ jobs:
 
     - name: Sign the executable
       run: |
-        openssl dgst -sha256 -sign key.pem -out executable.sig /src/app.js
+        openssl dgst -sha256 -sign key.pem -out executable.sig build.js
 
     - name: Verify the signature
       run: |
-        openssl dgst -sha256 -verify pubkey.pem -signature executable.sig /src/app.js
+        openssl dgst -sha256 -verify pubkey.pem -signature executable.sig build.js
 
     - name: Upload signed executable and signature
       uses: actions/upload-artifact@v2
       with:
         name: signed-executable
         path: |
-          /src/app.js
+          build.js
           executable.sig
