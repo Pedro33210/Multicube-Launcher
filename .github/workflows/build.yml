@@ -1,25 +1,14 @@
-name: Build and Sign Executable
+name: Sign Verify JavaScript File
 
 on: [push]
 
 jobs:
-  build-and-sign:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build executable
-      run: npm run build
 
     - name: Set up OpenSSL
       run: |
@@ -30,19 +19,33 @@ jobs:
       run: |
         openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=multicube.fr"
         openssl x509 -in cert.pem -pubkey -noout -out pubkey.pem
+      shell: bash
 
-    - name: Sign the executable
+    - name: Show generated files
       run: |
-        openssl dgst -sha256 -sign key.pem -out executable.sig build.js
+        ls -la
+        cat cert.pem
+        cat pubkey.pem
+      shell: bash
 
-    - name: Verify the signature
+    - name: Sign JavaScript file
       run: |
-        openssl dgst -sha256 -verify pubkey.pem -signature executable.sig build.js
+        openssl dgst -sha256 -sign key.pem -out signature.bin build.js
+      shell: bash
 
-    - name: Upload signed executable and signature
+    - name: Show signature
+      run: cat signature.bin
+      shell: bash
+
+    - name: Verify signature
+      run: |
+        openssl dgst -sha256 -verify pubkey.pem -signature signature.bin build.js
+      shell: bash
+
+    - name: Upload signed file and signature
       uses: actions/upload-artifact@v2
       with:
-        name: signed-executable
+        name: signed-code
         path: |
           build.js
-          executable.sig
+          signature.bin
