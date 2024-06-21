@@ -15,7 +15,7 @@
 }
 
 .nav-settings p {
-    font-size: 60%;
+    font-size: 50%;
     margin-top: 80px;
 }
 
@@ -111,7 +111,7 @@
  *                                                                             *
  ******************************************************************************/
 .accounts-list {
-    max-height: 90%;
+    max-height: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -185,12 +185,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     pointer-events: none;
-
+    font-size: 0rem;
 }
 
 .delete-profile {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background: var(--background-transparent);
     border-radius: 15px;
     font-size: 3rem;

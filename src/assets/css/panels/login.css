@@ -1,14 +1,13 @@
-.login .container {
+/*.login .container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
+}*/
 
 .login-tabs {
     position: absolute;
     padding: 15px;
-    background: var(--background);
     border-radius: 15px;
     text-align: center;
     min-width: 40%;
@@ -37,8 +36,8 @@
     margin: 15px 10px;
 }
 
-.input-login .email,
-.input-login .password,
+.email,
+.password,
 .A2F {
     color: var(--color);
     background: none;

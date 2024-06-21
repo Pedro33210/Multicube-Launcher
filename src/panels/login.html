@@ -48,7 +48,7 @@
     /* Styler le texte des joueurs connectés */
     .connected-players {
       color: white;
-      font-size: 16px;
+      font-size: 30px;
       margin-bottom: 20px;
     }
     
@@ -58,7 +58,7 @@
       background-size: cover; /* Assurez-vous que l'image couvre entièrement le champ */
       width: 80%; /* Ajustez la largeur selon vos besoins */
       color: #FFFFFF; /* Texte blanc pour une meilleure visibilité */
-      border: none; /* Pas de bordure */
+      border: none; /* Pas de bordure */ 
       box-shadow: none; /* Pas d'ombre */
       border-radius: 0px; /* Coins arrondis */
       padding: 15px 20px; /* Espacement intérieur */
@@ -75,33 +75,11 @@
       outline: none; /* Pas de contour lors de la sélection */
     }
     
+
     </style>
 
 
 <div class="container">
-    <div class="login-home login-tabs">
-        <div class="login-text">Veuillez vous identifier afin de jouer.</div>
-        <div class="player-count">0</div>
-        <div class="login-options">
-            <button class="connect connect-home">Connexion</button>
-            <button class="cancel cancel-home"  style="display: none;">annuler</button>
-        </div>
-    </div>
-
-    <div class="login-offline login-tabs">
-        <div class="login-text">Veuillez entrer votre pseudo</div>
-
-        <div class="input-login">
-            <input type="text" class="email email-offline" placeholder="Pseudo" />
-        </div>
-        <div class="player-count">0</div>
-        <div class="login-options">
-            <button class="connect connect-offline">Connexion</button>
-            <button class="cancel cancel-offline" style="display: none;">annuler</button>
-        </div>
-    </div>
-
-
     <div class="login-container login-AZauth"><br><br><br>
         <img src="assets/images/icon.png" alt="Logo MULTICUBE" class="logo">
         <div class="blur-background">
@@ -117,8 +95,9 @@
                 <button class="button cancel cancel-AZauth" style="display: none;">annuler</button>
             </div>
         </div>
-    
-        <div class="login-AZauth-A2F login-tabs" style="display: none;">
+    </div>
+    <div class="login-AZauth-A2F login-container login-tabs" style="display: none;"><br><br><br>
+        <img src="assets/images/icon.png" alt="Logo MULTICUBE" class="logo">
             <div class="login-text">Veuillez entrer le code de sécurité.</div>
     
             <div class="input-login">
