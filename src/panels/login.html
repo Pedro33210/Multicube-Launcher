@@ -1,3 +1,66 @@
+<style>
+/* Appliquer l'image de fond avec un effet de flou */
+body {
+  background-image: url('chemin-vers-votre-image-de-fond.jpg');
+  background-size: cover;
+  filter: blur(8px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Centrer le contenu de la page de connexion */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Styler le logo */
+.logo {
+  width: 200px; /* Ajustez selon vos besoins */
+  margin-bottom: 20px;
+}
+
+/* Styler les champs de saisie */
+.input-field {
+  width: 80%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Styler le bouton */
+.button {
+  background-color: #008CBA; /* Couleur d'exemple - ajustez selon vos besoins */
+  color: white;
+  padding: 15px 30px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Ajouter un effet de flou derrière les champs de saisie et le bouton */
+.blur-background {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+/* Styler le texte des joueurs connectés */
+.connected-players {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+</style>
+
+
 <div class="container">
     
     <div class="login-home login-tabs">
@@ -22,30 +85,33 @@
         </div>
     </div>
 
-    <div class="login-AZauth login-tabs">
-        <div class="login-text">Veuillez vous connecter afin de jouer.</div>
-        <div class="player-count">0</div>
-        <div class="input-login">
-            <input type="text" class="email email-AZauth" placeholder="E-mail" />
-            <input type="password" class="password password-AZauth" placeholder="Password" />
-        </div>
 
-        <div class="login-options">
-            <button class="connect connect-AZauth">Connexion</button>
-            <button class="cancel cancel-AZauth" style="display: none;">annuler</button>
+    <div class="login-container">
+        <img src="assets/images/icon.png" alt="Logo MULTICUBE" class="logo">
+        <div class="blur-background">
+            <div class="login-text">Veuillez vous connecter afin de jouer.</div>
+            <div class="connected-players">Joueurs connectés: 100</div>
+            <div class="input-login">
+                <input type="text" class="input-field email email-AZauth" placeholder="E-mail" />
+                <input type="password" class="input-field password password-AZauth" placeholder="Password" />
+            </div>
+    
+            <div class="login-options">
+                <button class="button connect connect-AZauth">Connexion</button>
+                <button class="button cancel cancel-AZauth" style="display: none;">annuler</button>
+            </div>
+        </div>
+    
+        <div class="login-AZauth-A2F login-tabs" style="display: none;">
+            <div class="login-text">Veuillez entrer le code de sécurité.</div>
+    
+            <div class="input-login">
+                <input type="text" class="input-field A2F A2F-AZauth" placeholder="Code" />
+            </div>
+    
+            <div class="login-options">
+                <button class="button connect connect-AZauth-A2F">Valider</button>
+                <button class="button cancel cancel-AZauth-A2F">annuler</button>
+            </div>
         </div>
     </div>
-
-    <div class="login-AZauth-A2F login-tabs">
-        <div class="login-text">Veuillez entrer le code de sécurité.</div>
-
-        <div class="input-login">
-            <input type="text" class="A2F A2F-AZauth" placeholder="Code" />
-        </div>
-
-        <div class="login-options">
-            <button class="connect connect-AZauth-A2F">Valider</button>
-            <button class="cancel cancel-AZauth-A2F">annuler</button>
-        </div>
-    </div>
-</div>

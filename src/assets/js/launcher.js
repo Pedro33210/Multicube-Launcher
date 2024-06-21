@@ -100,8 +100,8 @@ class Launcher {
                 },
                 game_config: {
                     screen_size: {
-                        width: 1500,
-                        height: 900
+                        width: 854,
+                        height: 480
                     }
                 },
                 launcher_config: {
