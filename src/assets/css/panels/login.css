@@ -37,8 +37,8 @@
     margin: 15px 10px;
 }
 
-.input-login .email,
-.input-login .password,
+.email,
+.password,
 .A2F {
     color: var(--color);
     background: none;
