@@ -1,7 +1,7 @@
 {
     "name": "Multicube-Launcher",
     "preductname": "Multicube Launcher",
-    "version": "2.1.0",
+    "version": "2.1.0.1",
     "description": "Launcher Mincraft pour le serveur Multicube",
     "main": "src/app.js",
     "author": {
@@ -32,6 +32,7 @@
         "cross-env": "^7.0.3",
         "electron": "^30.0.9",
         "electron-builder": "^24.13.3",
+        "electron-builder-squirrel-windows": "^24.13.3",
         "javascript-obfuscator": "^4.1.0",
         "jimp": "^0.3.11",
         "nodemon": "^3.1.2",
