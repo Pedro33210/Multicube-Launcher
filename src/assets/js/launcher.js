@@ -94,14 +94,14 @@ class Launcher {
                 java_config: {
                     java_path: null,
                     java_memory: {
-                        min: 2,
-                        max: 4
+                        min: 1,
+                        max: 6
                     }
                 },
                 game_config: {
                     screen_size: {
-                        width: 854,
-                        height: 480
+                        width: 1500,
+                        height: 900
                     }
                 },
                 launcher_config: {
