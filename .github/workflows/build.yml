@@ -56,24 +56,3 @@ jobs:
           GH_TOKEN: ${{ secrets.github_token }}
         run: npm run build
         shell: bash
-
-      - name: Encode certificate
-        run: echo "${{ secrets.CODE_SIGNING_CERT_BASE64 }}" | base64 -d > code_signing_certificate.pfx
-        shell: bash
-
-      - name: Install signtool
-        if: matrix.os == 'windows-latest'
-        run: |
-          curl -LO https://aka.ms/vs/17/release/vs_buildtools.exe
-          Start-Process vs_buildtools.exe -ArgumentList '--quiet', '--wait', '--add Microsoft.VisualStudio.Component.VC.14.29.x86.x64' -NoNewWindow -Wait
-
-      - name: Sign executable
-        if: matrix.os == 'windows-latest'
-        run: |
-          signtool sign /f code_signing_certificate.pfx /p ${{ secrets.CERTIFICATE_PASSWORD }} /tr http://timestamp.digicert.com /td sha256 /fd sha256 /v dist\*.exe
-
-      - name: Package and Upload
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Logic to package and upload your build artifacts (e.g., ZIP files, installers)
