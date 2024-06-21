@@ -1,93 +1,84 @@
 <style>
 
-body {
-    background-image: url('chemin-vers-votre-image-de-fond.jpg');
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden;
-  }
+    body {
+        background-image: url('chemin-vers-votre-image-de-fond.jpg');
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+      }
+    
+      .login-container {
+        position: absolute;
+        top: 0;
+        left: 35%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 40%;
+        min-height: 100vh; /* Assurez-vous que le conteneur s'étend sur toute la hauteur */
+        background-image: url('assets/images/img/flou.png');
+        background-size: cover; /* Couvre la largeur et la hauteur */
+        background-position: center center; /* Centre l'image de fond */
+        z-index: 2;
+        display: flex;
+        justify-content: center; /* Centre horizontalement */
+        align-items: center; /* Centre verticalement */
+        flex-direction: column;
+        padding: 20px;
+        }
 
-  /* Utiliser un pseudo-élément pour le flou */
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-image: inherit;
-    background-size: cover;
-    z-index: -1;
-  }
-
-  .login-container {
-  position: absolute;
-  top: 0;
-  left: 30%;
-  transform: translateX(-30%);
-  text-align: center;
-  width: 40%;
-  height: 100vh;
-  background-image: url('assets/images/img/flou.png');
-  background-size: cover;
-  background-position: center;
-  z-index: 2;
-  display: flex; /* Utilisez flexbox pour centrer le contenu */
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  flex-direction: column; /* Organise les enfants en colonne */
-}
-
-
-/* Styler le logo */
-.logo {
-  width: 200px; /* Ajustez selon vos besoins */
-  margin-bottom: 20px;
-}
-
-/* Styler le bouton */
-.button {
-  background-color: #62cc25; /* Couleur d'exemple - ajustez selon vos besoins */
-  color: white;
-  padding: 15px 30px;
-  margin: 20px 0;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Styler le texte des joueurs connectés */
-.connected-players {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Styler les champs de saisie */
-.input-field {
-  background-image: url('assets/images/img/imput.png'); /* Assurez-vous que le chemin est correct */
-  background-size: cover; /* Assurez-vous que l'image couvre entièrement le champ */
-  width: 80%; /* Ajustez la largeur selon vos besoins */
-  color: #FFFFFF; /* Texte blanc pour une meilleure visibilité */
-  border: none; /* Pas de bordure */
-  box-shadow: none; /* Pas d'ombre */
-  border-radius: 4px; /* Coins arrondis */
-  padding: 12px 20px; /* Espacement intérieur */
-  margin-bottom: 10px; /* Espacement entre les champs */
-  font-size: 14px; /* Taille de la police */
-}
-
-.input-field::placeholder {
-  color: #FFFFFF; /* Couleur du texte de l'espace réservé */
-  opacity: 1; /* Opacité du texte de l'espace réservé */
-}
-
-.input-field:focus {
-  outline: none; /* Pas de contour lors de la sélection */
-}
-
-</style>
+    
+    
+    /* Styler le logo */
+    .logo {
+      width: 200px; /* Ajustez selon vos besoins */
+      margin-bottom: 20px;
+    }
+    
+    /* Styler le bouton */
+    .button {
+      background-color: #62cc25; /* Couleur d'exemple - ajustez selon vos besoins */
+      color: white;
+      padding: 15px 30px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Styler le texte des joueurs connectés */
+    .connected-players {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    /* Styler les champs de saisie */
+    .input-field {
+      background-image: url('assets/images/img/imput.png'); /* Assurez-vous que le chemin est correct */
+      background-size: cover; /* Assurez-vous que l'image couvre entièrement le champ */
+      width: 80%; /* Ajustez la largeur selon vos besoins */
+      color: #FFFFFF; /* Texte blanc pour une meilleure visibilité */
+      border: none; /* Pas de bordure */
+      box-shadow: none; /* Pas d'ombre */
+      border-radius: 0px; /* Coins arrondis */
+      padding: 15px 20px; /* Espacement intérieur */
+      margin-bottom: 15px; /* Espacement entre les champs */
+      font-size: 14px; /* Taille de la police */
+    }
+    
+    .input-field::placeholder {
+      color: #FFFFFF; /* Couleur du texte de l'espace réservé */
+      opacity: 1; /* Opacité du texte de l'espace réservé */
+    }
+    
+    .input-field:focus {
+      outline: none; /* Pas de contour lors de la sélection */
+    }
+    
+    </style>
 
 
 <div class="container">
-    
     <div class="login-home login-tabs">
         <div class="login-text">Veuillez vous identifier afin de jouer.</div>
         <div class="player-count">0</div>
@@ -111,7 +102,7 @@ body {
     </div>
 
 
-    <div class="login-container">
+    <div class="login-container login-AZauth"><br><br><br>
         <img src="assets/images/icon.png" alt="Logo MULTICUBE" class="logo">
         <div class="blur-background">
             <div class="login-text">Veuillez vous connecter afin de jouer.</div>
