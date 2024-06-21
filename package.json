@@ -1,7 +1,7 @@
 {
     "name": "Multicube-Launcher",
     "preductname": "Multicube Launcher",
-    "version": "2.1.0.12",
+    "version": "2.1.0.14",
     "description": "Launcher Mincraft pour le serveur Multicube",
     "main": "src/app.js",
     "author": {
@@ -19,7 +19,14 @@
     "license": "CCANC",
     "nodemonConfig": {
         "ext": "js,html,css",
-        "ignore": "**/test"
+        "ignored": [
+            "logs",
+            "resourcepacks",
+            "saves",
+            "screenshots",
+            "shaderpacks",
+            "options.txt"   
+        ]
     },
     "dependencies": {
         "electron-updater": "^6.1.8",
