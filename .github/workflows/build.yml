@@ -1,4 +1,3 @@
-# module du helios launcher
 name: Launcher Build
 on:
   push:
@@ -56,3 +55,35 @@ jobs:
           GH_TOKEN: ${{ secrets.github_token }}
         run: npm run build
         shell: bash
+
+  sign-windows:
+    needs: build-launcher
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Decode certificate
+        run: echo "${{ secrets.CERT_PATH }}" | base64 -d > mycert.pfx
+        shell: bash
+
+      - name: Sign the executable
+        run: |
+          $certPassword = "${{ secrets.CERT_PASSWORD }}"
+          $certPath = "mycert.pfx"
+          Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString -String $certPassword -Force -AsPlainText)
+          signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a /f $certPath /p $certPassword path\to\your\executable.exe
+        shell: pwsh
